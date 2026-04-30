@@ -47,7 +47,7 @@ def test_shop():
         total_element = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.CLASS_NAME, "summary_total_label"))
         )
-        total_text = total_element.text
+        total_text = total_element.text.split()[-1]
         print(f"Получена итоговая стоимость: {total_text}")
 
         expected_total = "$58.29"
