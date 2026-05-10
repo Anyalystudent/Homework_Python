@@ -27,4 +27,4 @@ class OrderPage():
     def total_sum(self):
         total_element = self.driver.find_element(By.CLASS_NAME, "summary_total_label")
         total_text = total_element.text.split()[-1]
-        print(f"Получена итоговая стоимость: {total_text}")
+        return total_text

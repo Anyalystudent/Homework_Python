@@ -1,10 +1,10 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-from pages.AuthPage import AuthPage
-from pages.MainPage import MainPage
-from pages.CartPage import CartPage
-from pages.OrderPage import OrderPage
+from AuthPage import AuthPage
+from MainPage import MainPage
+from CartPage import CartPage
+from OrderPage import OrderPage
 
 @pytest.fixture
 def driver():
