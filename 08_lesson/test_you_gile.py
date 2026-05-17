@@ -2,7 +2,7 @@ import requests
 import pytest
 from YouGileApi import YougileApi
 
-api = YougileApi('https://yougile.com')
+api = YougileApi('https://ru.yougile.com')
 
 
 def test_add_project_positive():
@@ -25,7 +25,7 @@ def test_add_project_negative():
         'Content-Type': 'application/json',
         'Authorization': f'Bearer {my_token}'
     }
-    resp = requests.post('https://yougile.com/api-v2/projects', headers=my_headers)
+    resp = requests.post('https://ru.yougile.com/api-v2/projects', headers=my_headers)
 
     assert resp.status_code == 400
     assert "title should not be empty" in resp.json()['message']
@@ -63,7 +63,7 @@ def test_edit_project_negative():
     project = {
         'title': new_title
     }
-    edited = requests.put('https://yougile.com/api-v2/projects/{id_project}', json=project, headers=my_headers)
+    edited = requests.put('https://ru.yougile.com/api-v2/projects/{id_project}', json=project, headers=my_headers)
 
     assert edited.status_code == 401
     assert "Unauthorized" in edited.json()['message']
@@ -93,6 +93,6 @@ def test_get_project_negative():
         'Content-Type': 'application/json',
         'Authorization': f'Bearer {my_token}'
     }
-    project_id = requests.get('https://yougile.com/api-v2/projects/{id_project}', headers=my_headers)
+    project_id = requests.get('https://ru.yougile.com/api-v2/projects/{id_project}', headers=my_headers)
     assert project_id.status_code == 404
     assert "Проект не найден" in project_id.json()['message']
